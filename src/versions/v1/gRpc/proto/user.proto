@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package user;
+
+service UserService{
+    rpc IsValidToken(UserToken) returns (BaseReponse){}
+  }
+  
+  message UserToken{
+      string token = 1;
+  }
+  
+  message BaseReponse{
+      int32 status = 1;
+      string message = 2;
+      TokenDecoded data = 3;
+  }
+  
+  message TokenDecoded{
+    int32 user_id = 2;
+    int32 iat = 4;
+  }
